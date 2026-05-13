@@ -12,7 +12,7 @@
         {% for comment in post.comments.all %}
             <div class="comment">
                 <strong>{{ comment.author.username }}:</strong>
-                {{ comment.text|safe }}
+                {{ comment.text }}
             </div>
         {% empty %}
             <p>No comments yet.</p>
