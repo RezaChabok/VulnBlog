@@ -1,5 +1,7 @@
 # VulnBlog – A Deliberately Vulnerable Django Blog
 
+**📄 [نسخهٔ فارسی (Persian)](README_fa.md)**
+
 VulnBlog is a full-stack web application built with Django and Django REST
 Framework, intentionally riddled with **six OWASP Top 10:2021
 vulnerabilities**. It serves as my personal portfolio piece to demonstrate
@@ -80,6 +82,14 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
+## 🚀 Quick Start (with Docker)
+
+```bash
+git clone https://github.com/RezaChabok/VulnBlog.git
+cd VulnBlog
+docker-compose up --build
+```
+
 Visit http://127.0.0.1:8000 and start exploring – or breaking.
 
 🔐 The secure Branch
@@ -98,7 +108,7 @@ structured and allowed me to reuse findings across different endpoints – a
 practice I would bring to any real-world AppSec role.
 
 👤 Author
-Reza Chabok – GitHub
+Reza Chabok – [GitHub](https://github.com/RezaChabok)
 
 📄 License
-MIT
+[MIT](https://choosealicense.com/licenses/mit/)
