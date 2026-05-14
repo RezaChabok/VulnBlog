@@ -71,7 +71,7 @@ The post search API uses raw SQL queries without parameterization, directly conc
 2. The server returns all posts from the database instead of filtered results.
 
 **Proof of Concept:**  
-![[https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/SQLI.png]]
+<img src="https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/SQLI.png">
 
 The discovered `q` parameter was logged into **TAPRepo** under the SQLI category for future reference and fuzzing against similar API patterns.
 **Remediation:**  
@@ -92,7 +92,8 @@ Access tokens are configured with a 30-day lifetime (`ACCESS_TOKEN_LIFETIME = ti
 3. Observe the `exp` (expiration) field is set 30 days after `iat` (issued at).
 
 **Proof of Concept:**  
-![[https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/BrokenAuthentication.png]]
+
+<img src="https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/secure/reports/screenshots/BrokenAuthentication.png">
 
 **Remediation:**  
 Reduce `ACCESS_TOKEN_LIFETIME` to 15–30 minutes. Implement token refresh with rotation and blacklisting.
@@ -111,7 +112,7 @@ The `PostSerializer` includes an `author_password_hash` field that returns a har
 2. Observe the `author_password_hash` field in the response.
 
 **Proof of Concept:**  
-![[https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/SensitiveDataExposure.png]]
+<img src="https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/SensitiveDataExposure.png">
 
 **Remediation:**  
 Remove the `author_password_hash` field from `PostSerializer`.
@@ -131,7 +132,7 @@ User-submitted comments are rendered using Django's `|safe` filter, which disabl
 3. The JavaScript code executes in the browser.
 
 **Proof of Concept:**  
-![[https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/XSS.png]]
+<img src="https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/XSS.png">
 
 **Remediation:**  
 Remove the `|safe` filter and rely on Django's automatic HTML escaping.
@@ -151,7 +152,7 @@ The user profile API does not verify whether the requesting user is authorized t
 3. The server returns user B's personal data.
 
 **Proof of Concept:**  
-![[https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/IDOR.png]]
+<img src="https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/IDOR.png">
 
 **Remediation:**  
 Validate that `request.user.id` matches the requested `user_id`.
@@ -171,7 +172,7 @@ The post editing view is decorated with `@csrf_exempt`, disabling Django's built
 3. The post is successfully modified.
 
 **Proof of Concept:**  
-![[https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/CSRF.png]]
+<img src="https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/CSRF.png">
 
 **Remediation:**  
 Remove the `@csrf_exempt` decorator and ensure the form includes `{% csrf_token %}`.
