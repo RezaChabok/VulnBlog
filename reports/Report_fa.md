@@ -70,7 +70,7 @@ API جستجوی پست‌ها از کوئری‌های خام SQL بدون پا
     
 
 **اثبات مفهوم:**  
-![[https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/SQLI.png]]
+<img src="https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/SQLI.png">
 
 پارامتر `q` که آسیب‌پذیر تشخیص داده شد، برای ارجاع و تست فازی در الگوهای مشابه API، در **TAPRepo** و تحت دستهٔ SQLI ثبت گردید.
 
@@ -99,7 +99,7 @@ API جستجوی پست‌ها از کوئری‌های خام SQL بدون پا
     
 
 **اثبات مفهوم:**  
-![[https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/BrokenAuthentication.png]]
+<img src="https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/BrokenAuthentication.png">
 
 **راهکار اصلاحی:**  
 کاهش `ACCESS_TOKEN_LIFETIME` به ۱۵ تا ۳۰ دقیقه. پیاده‌سازی refresh token همراه با چرخش و ابطال.
@@ -124,7 +124,7 @@ API جستجوی پست‌ها از کوئری‌های خام SQL بدون پا
     
 
 **اثبات مفهوم:**  
-![[https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/SensitiveDataExposure.png]]
+<img src="https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/SensitiveDataExposure.png">
 
 **راهکار اصلاحی:**  
 حذف فیلد `author_password_hash` از `PostSerializer`.
@@ -151,7 +151,7 @@ API جستجوی پست‌ها از کوئری‌های خام SQL بدون پا
     
 
 **اثبات مفهوم:**  
-![[https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/XSS.png]]
+<img src="https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/XSS.png">
 
 **راهکار اصلاحی:**  
 حذف فیلتر `|safe` و تکیه بر escape خودکار HTML جنگو.
@@ -178,7 +178,7 @@ API پروفایل کاربر بررسی نمی‌کند که آیا کاربر 
     
 
 **اثبات مفهوم:**  
-![[https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/IDOR.png]]
+<img src="https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/IDOR.png">
 
 **راهکار اصلاحی:**  
 بررسی اینکه `request.user.id` با `user_id` درخواستی برابر باشد.
@@ -205,7 +205,7 @@ API پروفایل کاربر بررسی نمی‌کند که آیا کاربر 
     
 
 **اثبات مفهوم:**  
-![[https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/CSRF.png]]
+<img src="https://raw.githubusercontent.com/RezaChabok/VulnBlog/refs/heads/main/reports/screenshots/CSRF.png">
 
 **راهکار اصلاحی:**  
 حذف دکوریتور `@csrf_exempt` و اطمینان از وجود `{% csrf_token %}` در فرم.
