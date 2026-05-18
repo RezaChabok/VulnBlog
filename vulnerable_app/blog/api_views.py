@@ -6,6 +6,13 @@ from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 from django.contrib.auth.models import User
 import json
+from rest_framework.throttling import UserRateThrottle, AnonRateThrottle
+from rest_framework.permissions import IsAuthenticated
+
+
+class TokenObtainThrottle(AnonRateThrottle):
+    rate = '5/minute' 
+
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
